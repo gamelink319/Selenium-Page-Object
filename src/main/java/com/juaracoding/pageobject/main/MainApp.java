@@ -2,7 +2,8 @@ package com.juaracoding.pageobject.main;
 
 import org.openqa.selenium.WebDriver;
 import com.juaracoding.pageobject.drivers.DriverSingleton;
-import com.juaracoding.pageobject.pages.LoginPage;
+import com.juaracoding.pageobject.loginRegister.login;
+import com.juaracoding.pageobject.loginRegister.register;
 
 public class MainApp {
 
@@ -10,11 +11,17 @@ public class MainApp {
 		
 		DriverSingleton.getInstance("Firefox");
 		WebDriver driver = DriverSingleton.getDriver();
-		String url ="https://opensource-demo.orangehrmlive.com";
+		String url ="https://shop.demoqa.com";
 		driver.get(url);
 		
-		LoginPage loginpage =new LoginPage();
-		loginpage.login();
+		register Register =new register();
+		Register.RegShop();
+		
+		delay(5);
+		
+		login Login =new login();
+		Login.loginShop();
+		Login.loginsucces();
 		
 		delay(5);
 		driver.quit();
