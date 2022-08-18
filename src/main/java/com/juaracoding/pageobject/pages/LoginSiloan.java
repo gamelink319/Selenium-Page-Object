@@ -7,39 +7,30 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.juaracoding.pageobject.drivers.DriverSingleton;
 
-public class LoginPage {
-	
+public class LoginSiloan {
+
 	private WebDriver driver;
 	
-	public LoginPage() {
+	public LoginSiloan() {
 		this.driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath = "//input[@name='txtUsername']")
+	@FindBy(xpath = "//input[@placeholder='Username']")
 	private WebElement username;
 	
-	@FindBy(xpath = "//input[@name='txtPassword']")
+	@FindBy(xpath = "//input[@placeholder='Password']")
 	private WebElement password;
 	
-	@FindBy(xpath = "//input[@name='Submit']")
+	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement btnlogin;
-	
-	@FindBy(xpath = "//span[@id='spanMessage']")
-	private WebElement msgError;
-	
-	@FindBy(xpath = "//h1[normalize-spave()='Dashboard']")
-	private WebElement txtDashboard;
 	
 	public void login(String username,String password) {
 		this.username.sendKeys(username);
 		this.password.sendKeys(password);
 		btnlogin.click();
 	}
+	public String getAttributeRequired() {
+		return username.getAttribute("required");
+	}
 	
-	public String msgInvalid() {
-		return msgError.getText();
-	}
-	public String getTxtDashBoard() {
-		return txtDashboard.getText();
-	}
 }
