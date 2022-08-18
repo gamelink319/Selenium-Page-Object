@@ -68,7 +68,6 @@ public class TestPostTest18 {
 			e.printStackTrace();
 			System.out.println(e);
 		}
-
 	}
 
 	static void scroll(int vertical) {
